@@ -385,11 +385,52 @@ main {
 }
 
 /* About Page */
+.about-hero {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  max-width: 1000px;
+}
+
+.about-profile {
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 280px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid var(--color-border);
+  filter: grayscale(0);
+  transition: border-color var(--transition-normal);
+}
+
+.profile-photo:hover {
+  border-color: var(--color-accent);
+}
+
+.about-text {
+  flex: 1;
+}
+
 .about-intro {
   font-size: 1.2rem;
   line-height: 1.8;
   max-width: 800px;
   margin: 0 auto var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo {
+    width: 200px;
+    margin-bottom: var(--space-md);
+  }
 }
 
 .philosophy-section {
