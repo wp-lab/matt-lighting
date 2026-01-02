@@ -9,21 +9,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .lang-switcher button:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: white;
+    }
+    .lang-switcher button.active {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.5);
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
     <a href="/" class="nav-logo">matt.lighting</a>
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/works.html" class="active">Works</a>
-      <a href="/about.html">About</a>
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/works.html" class="active" data-i18n="nav.works">Works</a>
+      <a href="/about.html" data-i18n="nav.about">About</a>
+      <div class="lang-switcher">
+        <button onclick="setLang('en')" id="lang-en" class="active">EN</button>
+        <button onclick="setLang('de')" id="lang-de">DE</button>
+        <button onclick="setLang('pt')" id="lang-pt">PT</button>
+      </div>
     </div>
   </nav>
 
   <main>
     <header class="page-header">
-      <h1>Works</h1>
-      <p class="page-subtitle">Light installations across Portugal, 2019-2024</p>
+      <h1 data-i18n="page.title">Works</h1>
+      <p class="page-subtitle" data-i18n="page.subtitle">Light installations across Portugal, 2019-2024</p>
     </header>
 
     <section class="content-section">
@@ -32,64 +69,64 @@
         <div class="portfolio-item hero-item">
           <img src="/images/water-reflection.jpg" alt="Light installation reflected in still water at Pego das Pias">
           <div class="portfolio-caption">
-            <h3>Pego das Pias</h3>
-            <p>Masik Shivratri ceremony. Mandalas on water, medicine music under the stars.</p>
+            <h3 data-i18n="work.pego.title">Pego das Pias</h3>
+            <p data-i18n="work.pego.desc">Masik Shivratri ceremony. Mandalas on water, medicine music under the stars.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
           <img src="/images/rainbow-mist.jpg" alt="Rainbow-lit forest in mist">
           <div class="portfolio-caption">
-            <h3>Forest in Mist</h3>
-            <p>Full spectrum through fog. Fire circle gathering.</p>
+            <h3 data-i18n="work.mist.title">Forest in Mist</h3>
+            <p data-i18n="work.mist.desc">Full spectrum through fog. Fire circle gathering.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
           <img src="/images/moon-forest.jpg" alt="Full moon over rainbow-lit forest">
           <div class="portfolio-caption">
-            <h3>Lucid Dream</h3>
-            <p>Moon rising over rainbow forest. Ecstatic dance under the stars.</p>
+            <h3 data-i18n="work.lucid.title">Lucid Dream</h3>
+            <p data-i18n="work.lucid.desc">Moon rising over rainbow forest. Ecstatic dance under the stars.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
           <img src="/images/dome-dance.jpg" alt="Geodesic dome dance floor">
           <div class="portfolio-caption">
-            <h3>Geodesic Temple</h3>
-            <p>Dome dance floor with transparent ceiling. Stars visible above.</p>
+            <h3 data-i18n="work.dome.title">Geodesic Temple</h3>
+            <p data-i18n="work.dome.desc">Dome dance floor with transparent ceiling. Stars visible above.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
           <img src="/images/winter-garden.jpg" alt="Winter garden with bare trees lit in colors">
           <div class="portfolio-caption">
-            <h3>Winter Garden</h3>
-            <p>Bare trees in spectrum. Candle path to altar.</p>
+            <h3 data-i18n="work.winter.title">Winter Garden</h3>
+            <p data-i18n="work.winter.desc">Bare trees in spectrum. Candle path to altar.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
           <img src="/images/fire-dance.jpg" alt="Fire circle with dancing">
           <div class="portfolio-caption">
-            <h3>Fire Circle</h3>
-            <p>Ecstatic movement around flames. Purple tree behind.</p>
+            <h3 data-i18n="work.fire.title">Fire Circle</h3>
+            <p data-i18n="work.fire.desc">Ecstatic movement around flames. Purple tree behind.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
           <img src="/images/uv-party.jpg" alt="UV blacklight party">
           <div class="portfolio-caption">
-            <h3>UV Night</h3>
-            <p>Blacklight zone. Glowing tapestries and dancers.</p>
+            <h3 data-i18n="work.uv.title">UV Night</h3>
+            <p data-i18n="work.uv.desc">Blacklight zone. Glowing tapestries and dancers.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
           <img src="/images/dome-stars.jpg" alt="Inside dome looking up at stars">
           <div class="portfolio-caption">
-            <h3>Stargazing Dome</h3>
-            <p>Looking up through transparent ceiling. Rainbow walls.</p>
+            <h3 data-i18n="work.stars.title">Stargazing Dome</h3>
+            <p data-i18n="work.stars.desc">Looking up through transparent ceiling. Rainbow walls.</p>
           </div>
         </div>
 
@@ -97,9 +134,9 @@
     </section>
 
     <section class="content-section">
-      <h2>The Next Canvas</h2>
-      <p>The work continues to evolve. The newest project: <a href="https://ludicrous-lucy.me">Lucy</a>, a Tesla Model X with falcon wing doors, becoming a mobile light ceremony. RGB LEDs tracing the wings. A car that speaks, remembers, and glows.</p>
-      <p>Coming summer 2026 to <a href="https://giaf.ie">Galway International Arts Festival</a>.</p>
+      <h2 data-i18n="next.title">The Next Canvas</h2>
+      <p data-i18n="next.desc1">The work continues to evolve. The newest project: <a href="https://ludicrous-lucy.me">Lucy</a>, a Tesla Model X with falcon wing doors, becoming a mobile light ceremony. RGB LEDs tracing the wings. A car that speaks, remembers, and glows.</p>
+      <p data-i18n="next.desc2">Coming summer 2026 to <a href="https://giaf.ie">Galway International Arts Festival</a>.</p>
     </section>
   </main>
 
@@ -107,5 +144,114 @@
     <p>Matthias Krok · Rural Alentejo, Portugal</p>
     <p><a href="https://ludicrous-lucy.me">ludicrous-lucy.me</a></p>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        'nav.home': 'Home',
+        'nav.works': 'Works',
+        'nav.about': 'About',
+        'page.title': 'Works',
+        'page.subtitle': 'Light installations across Portugal, 2019-2024',
+        'work.pego.title': 'Pego das Pias',
+        'work.pego.desc': 'Masik Shivratri ceremony. Mandalas on water, medicine music under the stars.',
+        'work.mist.title': 'Forest in Mist',
+        'work.mist.desc': 'Full spectrum through fog. Fire circle gathering.',
+        'work.lucid.title': 'Lucid Dream',
+        'work.lucid.desc': 'Moon rising over rainbow forest. Ecstatic dance under the stars.',
+        'work.dome.title': 'Geodesic Temple',
+        'work.dome.desc': 'Dome dance floor with transparent ceiling. Stars visible above.',
+        'work.winter.title': 'Winter Garden',
+        'work.winter.desc': 'Bare trees in spectrum. Candle path to altar.',
+        'work.fire.title': 'Fire Circle',
+        'work.fire.desc': 'Ecstatic movement around flames. Purple tree behind.',
+        'work.uv.title': 'UV Night',
+        'work.uv.desc': 'Blacklight zone. Glowing tapestries and dancers.',
+        'work.stars.title': 'Stargazing Dome',
+        'work.stars.desc': 'Looking up through transparent ceiling. Rainbow walls.',
+        'next.title': 'The Next Canvas',
+        'next.desc1': 'The work continues to evolve. The newest project: <a href="https://ludicrous-lucy.me">Lucy</a>, a Tesla Model X with falcon wing doors, becoming a mobile light ceremony. RGB LEDs tracing the wings. A car that speaks, remembers, and glows.',
+        'next.desc2': 'Coming summer 2026 to <a href="https://giaf.ie">Galway International Arts Festival</a>.'
+      },
+      de: {
+        'nav.home': 'Start',
+        'nav.works': 'Arbeiten',
+        'nav.about': 'Über',
+        'page.title': 'Arbeiten',
+        'page.subtitle': 'Lichtinstallationen in Portugal, 2019-2024',
+        'work.pego.title': 'Pego das Pias',
+        'work.pego.desc': 'Masik Shivratri Zeremonie. Mandalas auf dem Wasser, Medizinmusik unter den Sternen.',
+        'work.mist.title': 'Wald im Nebel',
+        'work.mist.desc': 'Volles Spektrum durch Nebel. Feuerkreis-Zusammenkunft.',
+        'work.lucid.title': 'Lucid Dream',
+        'work.lucid.desc': 'Mondaufgang über Regenbogenwald. Ekstatischer Tanz unter den Sternen.',
+        'work.dome.title': 'Geodätischer Tempel',
+        'work.dome.desc': 'Kuppel-Tanzfläche mit transparenter Decke. Sterne sichtbar darüber.',
+        'work.winter.title': 'Wintergarten',
+        'work.winter.desc': 'Kahle Bäume im Spektrum. Kerzenpfad zum Altar.',
+        'work.fire.title': 'Feuerkreis',
+        'work.fire.desc': 'Ekstatische Bewegung um die Flammen. Lila Baum dahinter.',
+        'work.uv.title': 'UV-Nacht',
+        'work.uv.desc': 'Schwarzlichtzone. Leuchtende Wandteppiche und Tänzer.',
+        'work.stars.title': 'Sternenbeobachtungs-Kuppel',
+        'work.stars.desc': 'Blick durch die transparente Decke. Regenbogenwände.',
+        'next.title': 'Die Nächste Leinwand',
+        'next.desc1': 'Die Arbeit entwickelt sich weiter. Das neueste Projekt: <a href="https://ludicrous-lucy.me">Lucy</a>, ein Tesla Model X mit Falkenflügeltüren, wird zu einer mobilen Lichtzeremonie. RGB-LEDs zeichnen die Flügel nach. Ein Auto, das spricht, sich erinnert und leuchtet.',
+        'next.desc2': 'Im Sommer 2026 beim <a href="https://giaf.ie">Galway International Arts Festival</a>.'
+      },
+      pt: {
+        'nav.home': 'Início',
+        'nav.works': 'Trabalhos',
+        'nav.about': 'Sobre',
+        'page.title': 'Trabalhos',
+        'page.subtitle': 'Instalações de luz em Portugal, 2019-2024',
+        'work.pego.title': 'Pego das Pias',
+        'work.pego.desc': 'Cerimônia Masik Shivratri. Mandalas na água, música medicinal sob as estrelas.',
+        'work.mist.title': 'Floresta na Névoa',
+        'work.mist.desc': 'Espectro completo através da névoa. Encontro do círculo de fogo.',
+        'work.lucid.title': 'Lucid Dream',
+        'work.lucid.desc': 'Lua nascendo sobre a floresta arco-íris. Dança extática sob as estrelas.',
+        'work.dome.title': 'Templo Geodésico',
+        'work.dome.desc': 'Pista de dança em cúpula com teto transparente. Estrelas visíveis acima.',
+        'work.winter.title': 'Jardim de Inverno',
+        'work.winter.desc': 'Árvores nuas em espectro. Caminho de velas até o altar.',
+        'work.fire.title': 'Círculo de Fogo',
+        'work.fire.desc': 'Movimento extático ao redor das chamas. Árvore roxa atrás.',
+        'work.uv.title': 'Noite UV',
+        'work.uv.desc': 'Zona de luz negra. Tapeçarias brilhantes e dançarinos.',
+        'work.stars.title': 'Cúpula das Estrelas',
+        'work.stars.desc': 'Olhando através do teto transparente. Paredes arco-íris.',
+        'next.title': 'A Próxima Tela',
+        'next.desc1': 'O trabalho continua a evoluir. O projeto mais recente: <a href="https://ludicrous-lucy.me">Lucy</a>, um Tesla Model X com portas de asa de falcão, tornando-se uma cerimônia de luz móvel. LEDs RGB traçando as asas. Um carro que fala, lembra e brilha.',
+        'next.desc2': 'Em breve no verão de 2026 no <a href="https://giaf.ie">Galway International Arts Festival</a>.'
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('lang-' + lang).classList.add('active');
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let lang = localStorage.getItem('lang');
+      if (!lang) {
+        const browserLang = navigator.language.toLowerCase();
+        if (browserLang.startsWith('de')) lang = 'de';
+        else if (browserLang.startsWith('pt')) lang = 'pt';
+        else lang = 'en';
+      }
+      setLang(lang);
+    });
+  </script>
 </body>
 </html>

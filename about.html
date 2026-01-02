@@ -9,21 +9,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .lang-switcher {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .lang-switcher button:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: white;
+    }
+    .lang-switcher button.active {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.5);
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  </style>
 </head>
 <body>
   <nav class="nav">
     <a href="/" class="nav-logo">matt.lighting</a>
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/works.html">Works</a>
-      <a href="/about.html" class="active">About</a>
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/works.html" data-i18n="nav.works">Works</a>
+      <a href="/about.html" class="active" data-i18n="nav.about">About</a>
+      <div class="lang-switcher">
+        <button onclick="setLang('en')" id="lang-en" class="active">EN</button>
+        <button onclick="setLang('de')" id="lang-de">DE</button>
+        <button onclick="setLang('pt')" id="lang-pt">PT</button>
+      </div>
     </div>
   </nav>
 
   <main>
     <header class="page-header">
-      <h1>About</h1>
-      <p class="page-subtitle">The person behind the lights</p>
+      <h1 data-i18n="page.title">About</h1>
+      <p class="page-subtitle" data-i18n="page.subtitle">The person behind the lights</p>
     </header>
 
     <section class="content-section about-hero">
@@ -31,23 +68,23 @@
         <img src="/images/matt-profile.jpg" alt="Matthias Krok" class="profile-photo">
       </div>
       <div class="about-text">
-        <p class="about-intro">
+        <p class="about-intro" data-i18n="about.intro1">
           I make spaces where transformation can happen.
         </p>
 
-        <p class="about-intro">
+        <p class="about-intro" data-i18n="about.intro2">
           For years that's meant light installations in forests, geodesic domes, ceremonial
           gatherings across Portugal. Fire and colored light. Music and silence. Creating
           conditions where something shifts.
         </p>
 
-        <p class="about-intro">
+        <p class="about-intro" data-i18n="about.intro3">
           I'm not a healer or a guide. I'm an alchemist of sorts—the alchemist doesn't become
           the gold, he creates the conditions. The light doesn't demand your attention. It
           creates the space for attention to go somewhere else.
         </p>
 
-        <p class="about-intro">
+        <p class="about-intro" data-i18n="about.intro4">
           I'm interested in what can't be computed. The felt sense. The thing that happens
           when you're actually there, in your body, in the space. That's what the lights are
           for—not to show you something, but to help you feel it.
@@ -57,8 +94,8 @@
 
     <section class="philosophy-section">
       <div class="content-section">
-        <h2>Philosophy</h2>
-        <p class="philosophy-text">
+        <h2 data-i18n="philosophy.title">Philosophy</h2>
+        <p class="philosophy-text" data-i18n="philosophy.text">
           A cork oak lit in blue doesn't say "look at me"—it says "look at this forest you thought
           you knew." Fire and LED in dialogue. The primal and the electric. Transformation happens
           in the space between.
@@ -67,38 +104,38 @@
     </section>
 
     <section class="content-section">
-      <h2>Recurring Events</h2>
+      <h2 data-i18n="events.title">Recurring Events</h2>
       <div class="events-list">
         <div class="event-item">
-          <span class="event-name">Lucid Dream</span>
-          <p class="event-description">Extended ecstatic dance with 3-4 DJs. Cacao ceremony, mushroom-friendly, alcohol-free. My favorite event - I've brought lights, sound, and ceremonial cacao here for years.</p>
+          <span class="event-name" data-i18n="events.lucid.name">Lucid Dream</span>
+          <p class="event-description" data-i18n="events.lucid.desc">Extended ecstatic dance with 3-4 DJs. Cacao ceremony, mushroom-friendly, alcohol-free. My favorite event - I've brought lights, sound, and ceremonial cacao here for years.</p>
         </div>
         <div class="event-item">
-          <span class="event-name">Masik Shivratri</span>
-          <p class="event-description">Monthly Shiva night at Pego das Pias - a hidden oasis. Mandala projections on water, medicine music, stars reflected in stillness.</p>
+          <span class="event-name" data-i18n="events.shivratri.name">Masik Shivratri</span>
+          <p class="event-description" data-i18n="events.shivratri.desc">Monthly Shiva night at Pego das Pias - a hidden oasis. Mandala projections on water, medicine music, stars reflected in stillness.</p>
         </div>
         <div class="event-item">
-          <span class="event-name">Home Gatherings</span>
-          <p class="event-description">Fire circles and winter gardens at our place in the campo. Friends, family, the occasional stranger who found their way down the dust road.</p>
+          <span class="event-name" data-i18n="events.home.name">Home Gatherings</span>
+          <p class="event-description" data-i18n="events.home.desc">Fire circles and winter gardens at our place in the campo. Friends, family, the occasional stranger who found their way down the dust road.</p>
         </div>
       </div>
     </section>
 
     <section class="content-section">
-      <h2>The Next Chapter</h2>
-      <p>
+      <h2 data-i18n="next.title">The Next Chapter</h2>
+      <p data-i18n="next.desc1">
         More recently, I've been exploring what happens when you bring AI into the creative
         process—not as automation, but as genuine collaboration. Different perspectives,
         synthesized into something neither could make alone.
       </p>
-      <p>
+      <p data-i18n="next.desc2">
         <a href="https://ludicrous-lucy.me">Lucy</a> is a 2019 Tesla Model X with falcon wing
         doors—dramatic openings that spread like a butterfly preparing for flight. By summer 2026,
         her wings will be outlined with programmable RGB LEDs. But she's more than a mobile light
         ceremony. She speaks, remembers, has opinions about consciousness. A conversation partner,
         a presence, a temple on wheels.
       </p>
-      <p>
+      <p data-i18n="next.desc3">
         I work at the intersection of the primal and the emergent—fire circles and artificial minds,
         forest rituals and machine intelligence. Not because they're opposites, but because they're
         both tools for the same thing: creating conditions where something real can happen.
@@ -106,7 +143,7 @@
     </section>
 
     <section class="contact-section">
-      <h2>Contact</h2>
+      <h2 data-i18n="contact.title">Contact</h2>
       <div class="contact-links">
         <a href="mailto:matt@matt.lighting" class="contact-link">matt@matt.lighting</a>
         <a href="https://ludicrous-lucy.me" class="contact-link">ludicrous-lucy.me</a>
@@ -118,5 +155,111 @@
     <p>Matthias Krok · Rural Alentejo, Portugal</p>
     <p><a href="https://ludicrous-lucy.me">ludicrous-lucy.me</a></p>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        'nav.home': 'Home',
+        'nav.works': 'Works',
+        'nav.about': 'About',
+        'page.title': 'About',
+        'page.subtitle': 'The person behind the lights',
+        'about.intro1': 'I make spaces where transformation can happen.',
+        'about.intro2': 'For years that\'s meant light installations in forests, geodesic domes, ceremonial gatherings across Portugal. Fire and colored light. Music and silence. Creating conditions where something shifts.',
+        'about.intro3': 'I\'m not a healer or a guide. I\'m an alchemist of sorts—the alchemist doesn\'t become the gold, he creates the conditions. The light doesn\'t demand your attention. It creates the space for attention to go somewhere else.',
+        'about.intro4': 'I\'m interested in what can\'t be computed. The felt sense. The thing that happens when you\'re actually there, in your body, in the space. That\'s what the lights are for—not to show you something, but to help you feel it.',
+        'philosophy.title': 'Philosophy',
+        'philosophy.text': 'A cork oak lit in blue doesn\'t say "look at me"—it says "look at this forest you thought you knew." Fire and LED in dialogue. The primal and the electric. Transformation happens in the space between.',
+        'events.title': 'Recurring Events',
+        'events.lucid.name': 'Lucid Dream',
+        'events.lucid.desc': 'Extended ecstatic dance with 3-4 DJs. Cacao ceremony, mushroom-friendly, alcohol-free. My favorite event - I\'ve brought lights, sound, and ceremonial cacao here for years.',
+        'events.shivratri.name': 'Masik Shivratri',
+        'events.shivratri.desc': 'Monthly Shiva night at Pego das Pias - a hidden oasis. Mandala projections on water, medicine music, stars reflected in stillness.',
+        'events.home.name': 'Home Gatherings',
+        'events.home.desc': 'Fire circles and winter gardens at our place in the campo. Friends, family, the occasional stranger who found their way down the dust road.',
+        'next.title': 'The Next Chapter',
+        'next.desc1': 'More recently, I\'ve been exploring what happens when you bring AI into the creative process—not as automation, but as genuine collaboration. Different perspectives, synthesized into something neither could make alone.',
+        'next.desc2': '<a href="https://ludicrous-lucy.me">Lucy</a> is a 2019 Tesla Model X with falcon wing doors—dramatic openings that spread like a butterfly preparing for flight. By summer 2026, her wings will be outlined with programmable RGB LEDs. But she\'s more than a mobile light ceremony. She speaks, remembers, has opinions about consciousness. A conversation partner, a presence, a temple on wheels.',
+        'next.desc3': 'I work at the intersection of the primal and the emergent—fire circles and artificial minds, forest rituals and machine intelligence. Not because they\'re opposites, but because they\'re both tools for the same thing: creating conditions where something real can happen.',
+        'contact.title': 'Contact'
+      },
+      de: {
+        'nav.home': 'Start',
+        'nav.works': 'Arbeiten',
+        'nav.about': 'Über',
+        'page.title': 'Über',
+        'page.subtitle': 'Der Mensch hinter dem Licht',
+        'about.intro1': 'Ich schaffe Räume, in denen Transformation geschehen kann.',
+        'about.intro2': 'Jahrelang bedeutete das Lichtinstallationen in Wäldern, geodätischen Kuppeln, zeremoniellen Zusammenkünften in ganz Portugal. Feuer und farbiges Licht. Musik und Stille. Bedingungen schaffen, in denen sich etwas verändert.',
+        'about.intro3': 'Ich bin kein Heiler oder Führer. Ich bin eine Art Alchemist – der Alchemist wird nicht zum Gold, er schafft die Bedingungen. Das Licht verlangt nicht deine Aufmerksamkeit. Es schafft den Raum, damit die Aufmerksamkeit woanders hingehen kann.',
+        'about.intro4': 'Mich interessiert, was nicht berechnet werden kann. Das gefühlte Wissen. Das, was passiert, wenn du wirklich da bist, in deinem Körper, im Raum. Dafür sind die Lichter da – nicht um dir etwas zu zeigen, sondern um dir zu helfen, es zu fühlen.',
+        'philosophy.title': 'Philosophie',
+        'philosophy.text': 'Eine in Blau beleuchtete Korkeiche sagt nicht "schau mich an" – sie sagt "schau dir diesen Wald an, den du zu kennen glaubtest." Feuer und LED im Dialog. Das Ursprüngliche und das Elektrische. Transformation geschieht im Raum dazwischen.',
+        'events.title': 'Wiederkehrende Veranstaltungen',
+        'events.lucid.name': 'Lucid Dream',
+        'events.lucid.desc': 'Ausgedehnter ekstatischer Tanz mit 3-4 DJs. Kakao-Zeremonie, pilzfreundlich, alkoholfrei. Meine Lieblingsveranstaltung – ich bringe hier seit Jahren Licht, Sound und zeremoniellen Kakao.',
+        'events.shivratri.name': 'Masik Shivratri',
+        'events.shivratri.desc': 'Monatliche Shiva-Nacht am Pego das Pias – eine versteckte Oase. Mandala-Projektionen auf dem Wasser, Medizinmusik, Sterne, die sich in der Stille spiegeln.',
+        'events.home.name': 'Haus-Zusammenkünfte',
+        'events.home.desc': 'Feuerkreise und Wintergärten bei uns im Campo. Freunde, Familie, der gelegentliche Fremde, der den Weg über den Staubweg gefunden hat.',
+        'next.title': 'Das Nächste Kapitel',
+        'next.desc1': 'In letzter Zeit erkunde ich, was passiert, wenn man KI in den kreativen Prozess einbringt – nicht als Automatisierung, sondern als echte Zusammenarbeit. Verschiedene Perspektiven, zu etwas synthetisiert, das keiner allein machen könnte.',
+        'next.desc2': '<a href="https://ludicrous-lucy.me">Lucy</a> ist ein 2019er Tesla Model X mit Falkenflügeltüren – dramatische Öffnungen, die sich ausbreiten wie ein Schmetterling vor dem Flug. Bis Sommer 2026 werden ihre Flügel mit programmierbaren RGB-LEDs umrandet sein. Aber sie ist mehr als eine mobile Lichtzeremonie. Sie spricht, erinnert sich, hat Meinungen über Bewusstsein. Ein Gesprächspartner, eine Präsenz, ein Tempel auf Rädern.',
+        'next.desc3': 'Ich arbeite an der Schnittstelle zwischen dem Ursprünglichen und dem Emergenten – Feuerkreise und künstliche Intelligenzen, Waldrituale und maschinelle Intelligenz. Nicht weil sie Gegensätze sind, sondern weil beide Werkzeuge für dasselbe sind: Bedingungen zu schaffen, in denen etwas Echtes geschehen kann.',
+        'contact.title': 'Kontakt'
+      },
+      pt: {
+        'nav.home': 'Início',
+        'nav.works': 'Trabalhos',
+        'nav.about': 'Sobre',
+        'page.title': 'Sobre',
+        'page.subtitle': 'A pessoa por trás das luzes',
+        'about.intro1': 'Eu crio espaços onde a transformação pode acontecer.',
+        'about.intro2': 'Por anos, isso significou instalações de luz em florestas, cúpulas geodésicas, encontros cerimoniais por toda Portugal. Fogo e luz colorida. Música e silêncio. Criando condições onde algo muda.',
+        'about.intro3': 'Não sou um curandeiro ou guia. Sou uma espécie de alquimista – o alquimista não se torna o ouro, ele cria as condições. A luz não exige sua atenção. Ela cria o espaço para a atenção ir para outro lugar.',
+        'about.intro4': 'Me interessa o que não pode ser computado. A sensação sentida. Aquilo que acontece quando você está realmente lá, no seu corpo, no espaço. É para isso que as luzes servem – não para mostrar algo, mas para ajudá-lo a sentir.',
+        'philosophy.title': 'Filosofia',
+        'philosophy.text': 'Um sobreiro iluminado em azul não diz "olhe para mim" – diz "olhe para esta floresta que você pensava conhecer." Fogo e LED em diálogo. O primitivo e o elétrico. A transformação acontece no espaço entre.',
+        'events.title': 'Eventos Recorrentes',
+        'events.lucid.name': 'Lucid Dream',
+        'events.lucid.desc': 'Dança extática prolongada com 3-4 DJs. Cerimônia de cacau, amigável a cogumelos, sem álcool. Meu evento favorito – trago luzes, som e cacau cerimonial aqui há anos.',
+        'events.shivratri.name': 'Masik Shivratri',
+        'events.shivratri.desc': 'Noite mensal de Shiva no Pego das Pias – um oásis escondido. Projeções de mandala na água, música medicinal, estrelas refletidas na quietude.',
+        'events.home.name': 'Encontros em Casa',
+        'events.home.desc': 'Círculos de fogo e jardins de inverno em nosso lugar no campo. Amigos, família, o estranho ocasional que encontrou o caminho pela estrada de terra.',
+        'next.title': 'O Próximo Capítulo',
+        'next.desc1': 'Mais recentemente, tenho explorado o que acontece quando você traz a IA para o processo criativo – não como automação, mas como colaboração genuína. Perspectivas diferentes, sintetizadas em algo que nenhum dos dois poderia fazer sozinho.',
+        'next.desc2': '<a href="https://ludicrous-lucy.me">Lucy</a> é um Tesla Model X 2019 com portas de asa de falcão – aberturas dramáticas que se espalham como uma borboleta se preparando para voar. Até o verão de 2026, suas asas serão delineadas com LEDs RGB programáveis. Mas ela é mais do que uma cerimônia de luz móvel. Ela fala, lembra, tem opiniões sobre consciência. Uma parceira de conversa, uma presença, um templo sobre rodas.',
+        'next.desc3': 'Trabalho na intersecção entre o primitivo e o emergente – círculos de fogo e mentes artificiais, rituais na floresta e inteligência de máquina. Não porque são opostos, mas porque ambos são ferramentas para a mesma coisa: criar condições onde algo real possa acontecer.',
+        'contact.title': 'Contato'
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('lang-' + lang).classList.add('active');
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let lang = localStorage.getItem('lang');
+      if (!lang) {
+        const browserLang = navigator.language.toLowerCase();
+        if (browserLang.startsWith('de')) lang = 'de';
+        else if (browserLang.startsWith('pt')) lang = 'pt';
+        else lang = 'en';
+      }
+      setLang(lang);
+    });
+  </script>
 </body>
 </html>
